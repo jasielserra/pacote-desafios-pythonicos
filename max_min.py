@@ -5,9 +5,9 @@ def max_min(lst):
      :param lst: list
      :return: tuple
      '''
-    if len(lst) == 0: # lst = [1, ... 99]
-        raise ValueError('Empty List')
-    max_value = min_value = lst[0]
+    if len(lst) == 0: # lst = [1, ... 99] #O(n)
+        raise ValueError('Empty List')    #O(n)
+    max_value = min_value = lst[0]        #O(n)
 
     for value in lst:
         if value > max_value:
