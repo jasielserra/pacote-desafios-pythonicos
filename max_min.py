@@ -7,7 +7,15 @@ def max_min(lst):
      '''
     if len(lst) == 0: # lst = [1, ... 99]
         raise ValueError('Empty List')
-    return max(lst), min(lst) # O(n + n) = O(2n) = O(n) #tempo linear
+    max_value = min_value = lst[0]
+
+    for value in lst:
+        if value > max_value:
+            max_value = value
+        if value < min_value:
+            min_value = value
+
+    return max_value, min_value
 
 print(max_min([1])) # 1,1
 print(max_min([1,2])) # 2,1
