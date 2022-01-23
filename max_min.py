@@ -8,6 +8,7 @@ def max_min(lst):
     if len(lst) == 0: # lst = [1, ... 99] #O(n)
         raise ValueError('Empty List')    #O(n)
     max_value = min_value = lst[0]        #O(n)
+ #   return max(lst), min(lst) # Utilizando a biblioteca embutida O(n + n) = O(2n) = O(n)
 
     for value in lst:
         if value > max_value:
