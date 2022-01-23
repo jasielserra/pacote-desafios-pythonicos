@@ -15,7 +15,7 @@ def max_min(lst):
         if value < min_value:
             min_value = value
 
-    return max_value, min_value
+    return max_value, min_value # O(n) Tempo Linear
 
 print(max_min([1])) # 1,1
 print(max_min([1,2])) # 2,1
