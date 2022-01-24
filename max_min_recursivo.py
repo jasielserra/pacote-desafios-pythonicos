@@ -11,6 +11,7 @@ def max_min(lst):
     max_value = min_value = lst[-1]       #O(n)
 
     def max_min_rec(cursor):
+        nonlocal max_value, min_value
         if cursor < 0:
             return max_value, min_value
         current = lst[cursor]
@@ -18,7 +19,7 @@ def max_min(lst):
             max_value = current
         if current < min_value:
             min_value = current
-        return (cursor - 1)
+        return max_min_rec(cursor - 1)
 
     return max_min_rec(n-1)
 
