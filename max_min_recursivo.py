@@ -11,6 +11,18 @@ def max_min(lst):
     max_value = min_value = lst[-1]       #O(n)
 
     def max_min_rec(cursor):
+        """
+        t(n) = 1 + t(n-1)
+        t(n) = 1 + 1 + t(n-2)
+        t(n) = 1 + 1 + 1 + t(n-3)
+        t(n) = 1 + 1 + 1 + ... t(-1)
+        t(n) = n + 1 => O(n)
+
+        n(m) = 1 + m(n-1)  => O(n)
+
+        :param cursor:
+        :return:
+        """
         nonlocal max_value, min_value
         if cursor < 0:
             return max_value, min_value
