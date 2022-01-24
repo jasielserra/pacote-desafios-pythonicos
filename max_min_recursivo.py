@@ -24,18 +24,15 @@ def max_min(lst):
         :return:
         """
         nonlocal max_value, min_value
-        if cursor < 0:
+        if cursor < 0: # Condição de parada
             return max_value, min_value
         current = lst[cursor]
         if current > max_value:
             max_value = current
         if current < min_value:
             min_value = current
-        return max_min_rec(cursor - 1)
-
+        return max_min_rec(cursor - 1) # Chamada recursivas
     return max_min_rec(n-1)
-
-
 
 
 print(max_min([1])) # 1,1
