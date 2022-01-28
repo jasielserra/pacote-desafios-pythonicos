@@ -9,7 +9,7 @@ def hanoi(discos, orig='A', aux='B', dest='C'):
       t(n)=2**(n+1)-1 => O(2**n)
       m(n) = 1 + m(n-1) => O(n)
       """
-    stack = [(False,discos, orig, aux, dest)]
+    stack = [(False, discos, orig, aux, dest)]
 
     while stack:
         print_flag, discos, orig, aux, dest =  stack.pop()
