@@ -15,6 +15,8 @@ def has_move(board, line, column):
     :param line: The line of start slot
     :param column: The column of start slot
     :return: True if there is any Empty slot adjacent to the are occupied by one player
+
+    O(m*n) in time and memory
     """
     m = len(board)
     if m == 0:
@@ -35,7 +37,30 @@ def has_move(board, line, column):
 
         return [(l,c) for l in line_interval for c in column_interval]
 
-    return adjacents((line, column))
+    def has_empty_adjacent(position):
+        for p_line, p_column in adjacents(position):
+            if board[p_line][p_column] == EMPTY:
+                return True
+            return False
+
+    def adjacents_with_same_color(position):
+        return [(l, c) for l, c in adjacents(position) if color == board[l][c]]
+
+    to_be_visited = set([(line, column)])
+    visited = set()
+
+    while len(to_be_visited) > 0:
+        curr_position = to_be_visited.pop()
+        if has_empty_adjacent(curr_position):
+            return True
+        visited.add(curr_position)
+        for p in adjacents_with_same_color(curr_position):
+            if p not in visited:
+                to_be_visited.add(p)
+    return False
+
+    return has_empty_adjacent((line, column))
+
 
 board_white_unfinished = [
     [EMPTY, WHITE, BLACK, EMPTY],
