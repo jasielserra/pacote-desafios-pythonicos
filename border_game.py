@@ -26,12 +26,24 @@ def has_move(board, line, column):
     if color == EMPTY:
         raise Exception('Initial position can not be empty')
 
+    def adjacents(position):
+        def interval(value, value_max):
+            return range(max(value - 1, 0), min(value + 2, value_max))
+        p_line, p_column = position
+        line_interval = interval(p_line, m)
+        column_interval = interval(p_column, n)
+
+        return [(l,c) for l in line_interval for c in column_interval]
+
+    return adjacents((line, column))
+
 board_white_unfinished = [
     [EMPTY, WHITE, BLACK, EMPTY],
     [EMPTY, WHITE, BLACK, EMPTY],
     [EMPTY, WHITE, BLACK, EMPTY],
     [EMPTY, WHITE, BLACK, EMPTY],
 ]
+
 board_white_finished = [
     [WHITE, WHITE, BLACK, BLACK],
     [WHITE, WHITE, BLACK, BLACK],
@@ -40,4 +52,4 @@ board_white_finished = [
 ]
 
 print(has_move(board_white_unfinished, 1,1)) # expected True
-print(has_move(board_white_finished, 1,1)) # expected False
+print(has_move(board_white_finished, 0,0)) # expected False
