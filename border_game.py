@@ -16,6 +16,15 @@ def has_move(board, line, column):
     :param column: The column of start slot
     :return: True if there is any Empty slot adjacent to the are occupied by one player
     """
+    m = len(board)
+    if m == 0:
+        raise Exception('Board must have one line at least')
+    n = len(board[0])
+    if n == 0:
+        raise Exception('Board must have one column at least')
+    color = board[line][column]
+    if color == EMPTY:
+        raise Exception('Initial position can not be empty')
 
 board_white_unfinished = [
     [EMPTY, WHITE, BLACK, EMPTY],
