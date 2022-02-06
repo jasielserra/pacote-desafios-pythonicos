@@ -3,6 +3,10 @@ def phoneword(phonenumber):
     Returns all possible phonewords respective to a phonenumber
     :param phonenumber: str
     :return: list of str with all phonewords
+    4
+    3
+    O(3**n)<= ? <=O(4**n) => O(a**n)
+
     """
     digit_to_chars = {
         '2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl',
