@@ -24,4 +24,6 @@ def phoneword(phonenumber):
     return phoneword_rec([''], 0)
 
 print(phoneword('')) # ['']
+print(phoneword('7')) #['REN' 'SEN']
+print(phoneword('73')) #['REN' 'SEN']
 print(phoneword('736')) #['REN' 'SEN']
